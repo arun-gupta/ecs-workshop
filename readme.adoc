@@ -8,6 +8,7 @@
 - Application with Multiple Tasks
 - Service Discovery
 - CI/CD using Jenkins + ECS Plugin
-- CodeBuild + ECS
+- CI/CD using CodePipeline + ECS
 - X-Ray + ECS
+- Stateful Containers
 
