@@ -62,6 +62,8 @@ TBD
 
 == Load Balancing using ECS
 
+TBD
+
 == Service Discovery
 
 TBD
@@ -75,11 +77,13 @@ TBD
 - Build a Docker Image
 - Push and Pull images to EC2 Container Registry using Maven
 
-== CI/CD using Jenkins + ECS Plugin
+== CI/CD
+
+=== using CodePipeline + ECS
 
 TBD
 
-== CI/CD using CodePipeline + ECS
+== Using Jenkins + ECS Plugin
 
 TBD
 
