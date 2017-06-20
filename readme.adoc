@@ -13,8 +13,14 @@ Service:: ECS maintains the "`desired state`" of your application. This is achie
 
 == ECS Cluster
 
-- Create an ECS Cluster
-- Create and Run a Task Definition
+This section will show how to:
+
+- Create an ECS cluster
+- Create a task definition
+- Create a service using that task
+- Start tht service in the cluster
+
+Let's get started.
 
 . Go to https://us-west-1.console.aws.amazon.com/ecs/home?region=us-west-1#/getStarted[AWS Console for ECS]
 . Click on `Get Started`, select `Deploy a sample application onto an Amazon ECS Cluster`. This exercise does not require to deploy images to ECR and so unselect that.
@@ -36,8 +42,17 @@ image::images/ecs-cluster-wildfly.png[]
 +
 Click on `Review & Launch`.
 +
-. Click on `Launch instance & run service`.
-
+. Click on `Launch instance & run service`. It takes a few seconds for the cluster to be created and then it shows the following output:
++
+image::images/ecs-cluster-create-complete.png[]
++
+. Wait for a few minutes for the Docker image to be downloaded to EC2 instances. Two task instances in the service are then started.
++
+image::images/ecs-service-view.png[]
++
+. Click on the Service Name to see more details about the tasks running in this service:
++
+image::images/ecs-task-view.png[]
 
 
 == EC2 Container Registry
