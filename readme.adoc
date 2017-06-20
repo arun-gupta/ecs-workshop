@@ -11,9 +11,11 @@ Task:: A task is defined as a JSON file and describes an application that contai
 
 Service:: ECS maintains the "`desired state`" of your application. This is achieved by creating a service. A service specifies the number of instances of a task definition that needs to run at a given time. If the task in a service becomes unhealthy or stop running, then the service scheduler will bounce the task. It ensures that the desired and actual state are match. This is what provides resilience in ECS.New tasks within a Service are balanced across Availability Zones in your cluster. Service scheduler figures out which container instances can meet the needs of a service and schedules it on a valid container instance in an optimal Availability Zone (one with the fewest number of tasks running).
 
-== ECS Cluster
+== ECS Cluster 
 
-This section will show how to:
+=== Using AWS Console
+
+This section will use AWS Console and show how to:
 
 - Create an ECS cluster
 - Create a task definition
@@ -54,19 +56,24 @@ image::images/ecs-service-view.png[]
 +
 image::images/ecs-task-view.png[]
 
+=== Using AWS CLI
 
-== EC2 Container Registry
+TBD
 
-- Build a Docker Image
-- Push and Pull images to EC2 Container Registry using Maven
+== Load Balancing using ECS
+
+== Service Discovery
+
+TBD
 
 == Application with Multiple Tasks
 
 TBD
 
-== Service Discovery
+== EC2 Container Registry
 
-TBD
+- Build a Docker Image
+- Push and Pull images to EC2 Container Registry using Maven
 
 == CI/CD using Jenkins + ECS Plugin
 
