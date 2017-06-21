@@ -56,9 +56,52 @@ image::images/ecs-service-view.png[]
 +
 image::images/ecs-task-view.png[]
 
-=== Using AWS CLI
+=== Using CLI
 
-TBD
+. Install AWS ECS CLI
++
+```
+curl -o ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-darwin-amd64-latest
+chmod +x ecs-cli
+```
++
+.. Why there is no `brew install ecs-cli`?
++
+. Create a cluster:
++
+```
+aws ecs create-cluster --cluster-name default
+ecs-cli configure --cluster default
+ecs-cli up --keypair arun-west1 --capability-iam --size 2 --port 8080 --instance-type m3.xlarge
+```
++
+.. Why cluster create and configure is split between two CLIs? `aws ecs create-cluster` feels like a fake command.
+.. `ecs-cli` uses `--help` where as `aws ecs` CLI uses `help`
+.. Why `ecs-cli configure` and then `ecs-cli up` instead of adding `--cluster-name` in `up`?
+. Register task definition:
++
+```
+aws ecs register-task-definition --cli-input-json file://./wildfly-task.json
+```
++
+. Create service:
++
+```
+aws ecs create-service --service-name webapp-service --task-definition webapp --desired-count 1
+```
++
+. Get running count of the tasks in the service:
++
+```
+aws ecs describe-services --services webapp-service | jq .services[0].deployments[0].runningCount
+```
++
+. Scale service: `aws ecs update-service --service webapp-service --desired-count 2`
+. Shutdown the cluster:
++
+```
+ecs-cli down --force
+```
 
 == Load Balancing using ECS
 

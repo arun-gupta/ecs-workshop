@@ -1,0 +1,19 @@
+{
+    "family": "webapp",
+    "containerDefinitions": [
+        {
+            "name": "wildfly-container", 
+            "image": "jboss/wildfly:10.1.0.Final", 
+            "cpu": 2, 
+            "memory": 1024, 
+            "portMappings": [
+                {
+                    "containerPort": 8080, 
+                    "hostPort": 8080, 
+                    "protocol": "tcp"
+                }
+            ], 
+            "essential": true
+        }
+    ]
+}
