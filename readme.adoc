@@ -1,4 +1,7 @@
 = Getting Started with Amazon EC2 Container Service (ECS)
+:toc: macro
+
+toc::[]
 
 == ECS Basic Concepts
 
@@ -11,7 +14,7 @@ Task:: A task is defined as a JSON file and describes an application that contai
 
 Service:: ECS maintains the "`desired state`" of your application. This is achieved by creating a service. A service specifies the number of instances of a task definition that needs to run at a given time. If the task in a service becomes unhealthy or stop running, then the service scheduler will bounce the task. It ensures that the desired and actual state are match. This is what provides resilience in ECS.New tasks within a Service are balanced across Availability Zones in your cluster. Service scheduler figures out which container instances can meet the needs of a service and schedules it on a valid container instance in an optimal Availability Zone (one with the fewest number of tasks running).
 
-== ECS Cluster 
+== Manage ECS Cluster 
 
 === Using AWS Console
 
@@ -103,15 +106,15 @@ aws ecs describe-services --services webapp-service | jq .services[0].deployment
 ecs-cli down --force
 ```
 
-== Load Balancing using ECS
-
-TBD
-
-== Service Discovery
+== Load Balancing
 
 TBD
 
 == Application with Multiple Tasks
+
+TBD
+
+== Service Discovery
 
 TBD
 
@@ -126,11 +129,11 @@ TBD
 
 TBD
 
-== Using Jenkins + ECS Plugin
+=== Using Jenkins + ECS Plugin
 
 TBD
 
-== X-Ray + ECS
+== Distributed Tracing using X-Ray
 
 TBD
 
