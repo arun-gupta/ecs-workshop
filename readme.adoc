@@ -129,6 +129,17 @@ aws cloudformation deploy \
   --capabilities CAPABILITY_NAMED_IAM
 ```
 
+`CAPABILITY_NAMED_IAM` allows to create IAM policies with names.
+
+A typical usage will be:
+
+```
+aws cloudformation deploy \
+  --template-file cloudformation/ecs-cluster.yml \
+  --stack-name default \
+  --capabilities CAPABILITY_NAMED_IAM
+```
+
 Note that the stack defaults to launching two micro instances. If you want to launch more instances
 or instances of a different type you must provide parameter overrides:
 
@@ -136,8 +147,7 @@ or instances of a different type you must provide parameter overrides:
 aws cloudformation deploy \
   --template-file cloudformation/ecs-cluster.yml \
   --parameter-overrides DesiredCapacity=3, MaxSize=5, InstanceType=m4.xlarge
-  --region <region> \
-  --stack-name <stack name> \
+  --stack-name default \
   --capabilities CAPABILITY_NAMED_IAM
 ```
 
