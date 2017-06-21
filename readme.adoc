@@ -120,7 +120,7 @@ ecs-cli down --force
 === Using Cloud Formation
 
 Launch an automatically named ECS cluster in a region of your choice:
-+
+
 ```
 aws cloudformation deploy \
   --template-file cloudformation/ecs-cluster.yml \
@@ -128,10 +128,10 @@ aws cloudformation deploy \
   --stack-name <stack name> \
   --capabilities CAPABILITY_NAMED_IAM
 ```
-+
+
 Note that the stack defaults to launching two micro instances. If you want to launch more instances
 or instances of a different type you must provide parameter overrides:
-+
+
 ```
 aws cloudformation deploy \
   --template-file cloudformation/ecs-cluster.yml \
