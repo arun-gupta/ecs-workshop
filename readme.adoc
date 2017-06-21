@@ -160,7 +160,7 @@ aws cloudformation deploy \
 
 ==== Create Service and Task
 
-Follow the steps from 
+Follow the steps from https://github.com/arun-gupta/ecs-workshop#create-service-and-task.
 
 ==== Shutdown Cluster
 
