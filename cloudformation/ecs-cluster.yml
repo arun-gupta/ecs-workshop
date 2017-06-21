@@ -105,6 +105,8 @@ Resources:
   # ECS Resources
   ECSCluster:
     Type: AWS::ECS::Cluster
+    Properties:
+      ClusterName: !Ref 'AWS::StackName'
   EcsSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:

@@ -129,7 +129,7 @@ aws cloudformation deploy \
   --capabilities CAPABILITY_NAMED_IAM
 ```
 
-`CAPABILITY_NAMED_IAM` allows to create IAM policies with names.
+`CAPABILITY_NAMED_IAM` allows to create IAM policies with names. This will create a CloudFormation stack and an ECS cluster with `<stack name>`.
 
 A typical usage will be:
 
