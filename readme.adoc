@@ -99,7 +99,12 @@ aws ecs create-service --service-name webapp-service --task-definition webapp --
 aws ecs describe-services --services webapp-service | jq .services[0].deployments[0].runningCount
 ```
 +
-. Scale service: `aws ecs update-service --service webapp-service --desired-count 2`
+. Scale service to 0:
++
+```
+aws ecs update-service --service webapp-service --desired-count 0
+```
++
 . Shutdown the cluster:
 +
 ```
