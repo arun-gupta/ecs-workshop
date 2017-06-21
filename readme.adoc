@@ -69,7 +69,9 @@ chmod +x ecs-cli
 ```
 +
 .. Why there is no `brew install ecs-cli`?
-+
+
+==== Create a cluster
+
 . Create a cluster:
 +
 ```
@@ -81,6 +83,9 @@ ecs-cli up --keypair arun-west1 --capability-iam --size 2 --port 8080 --instance
 .. Why cluster create and configure is split between two CLIs? `aws ecs create-cluster` feels like a fake command.
 .. `ecs-cli` uses `--help` where as `aws ecs` CLI uses `help`
 .. Why `ecs-cli configure` and then `ecs-cli up` instead of adding `--cluster-name` in `up`?
+
+==== Create Service and Task
+
 . Register task definition:
 +
 ```
@@ -110,7 +115,9 @@ aws ecs update-service --service webapp-service --desired-count 0
 ```
 aws ecs delete-service --service webapp-service
 ```
-+
+
+==== Shutdown Cluster
+
 . Shutdown the cluster:
 +
 ```
@@ -149,6 +156,16 @@ aws cloudformation deploy \
   --parameter-overrides DesiredCapacity=3, MaxSize=5, InstanceType=m4.xlarge
   --stack-name default \
   --capabilities CAPABILITY_NAMED_IAM
+```
+
+==== Create Service and Task
+
+Follow the steps from 
+
+==== Shutdown Cluster
+
+```
+aws cloudformation delete-stack --stack-name default
 ```
 
 == Load Balancing
