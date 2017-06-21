@@ -14,7 +14,7 @@ Task:: A task is defined as a JSON file and describes an application that contai
 
 Service:: ECS maintains the "`desired state`" of your application. This is achieved by creating a service. A service specifies the number of instances of a task definition that needs to run at a given time. If the task in a service becomes unhealthy or stop running, then the service scheduler will bounce the task. It ensures that the desired and actual state are match. This is what provides resilience in ECS.New tasks within a Service are balanced across Availability Zones in your cluster. Service scheduler figures out which container instances can meet the needs of a service and schedules it on a valid container instance in an optimal Availability Zone (one with the fewest number of tasks running).
 
-== Manage ECS Cluster 
+== Manage ECS Cluster
 
 === Using AWS Console
 
@@ -119,7 +119,27 @@ ecs-cli down --force
 
 === Using Cloud Formation
 
-TBD
+Launch an automatically named ECS cluster in a region of your choice:
+
+```
+aws cloudformation deploy \
+  --template-file cloudformation/ecs-cluster.yml \
+  --region <region> \
+  --stack-name <stack name> \
+  --capabilities CAPABILITY_NAMED_IAM
+```
+
+Note that the stack defaults to launching two micro instances. If you want to launch more instances
+or instances of a different type you must provide parameter overrides:
+
+```
+aws cloudformation deploy \
+  --template-file cloudformation/ecs-cluster.yml \
+  --parameter-overrides DesiredCapacity=3, MaxSize=5, InstanceType=m4.xlarge
+  --region <region> \
+  --stack-name <stack name> \
+  --capabilities CAPABILITY_NAMED_IAM
+```
 
 == Load Balancing
 
