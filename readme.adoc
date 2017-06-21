@@ -168,6 +168,10 @@ Follow the steps from https://github.com/arun-gupta/ecs-workshop#create-service-
 aws cloudformation delete-stack --stack-name default
 ```
 
+=== Using Terraform
+
+https://github.com/arminc/terraform-ecs
+
 == Load Balancing
 
 TBD
