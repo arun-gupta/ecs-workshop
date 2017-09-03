@@ -170,7 +170,17 @@ aws cloudformation delete-stack --stack-name default
 
 === Using Terraform
 
-https://github.com/arminc/terraform-ecs
+The usage of Terraform scripts can be compared to using the CloudFormation. 
+Creating an ECS cluster with Terraform is fairly easy
+
+```
+resource "aws_ecs_cluster" "cluster" {
+  name = "${var.cluster}"
+}
+``` 
+
+But for an ECS cluster to work more things need to be created like described in the previous sections here above.
+For a full explanation on how it works and how to build it please see: https://github.com/arminc/terraform-ecs
 
 == Load Balancing
 
